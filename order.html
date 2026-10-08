@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Leaf Wash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="index.html" class="brand" aria-label="Leaf Wash home">
+          <img src="Picture1.png" alt="Leaf Wash logo" class="brand-mark" />
+        </a>
+
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="index.html#benefits">Benefits</a>
+          <a href="index.html#ingredients">Ingredients</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="order-page">
+      <div class="container order-layout">
+        <section class="order-product-panel">
+          <p class="eyebrow">Leaf Wash</p>
+          <h1>4 litres</h1>
+          <div class="price-row">
+            <span>Special offer</span>
+            <strong>$23.99</strong>
+          </div>
+          <ul class="mini-list">
+            <li>Gentle plant-based formula</li>
+            <li>Free from harsh solvent-heavy ingredients</li>
+            <li>Suitable for sensitive households</li>
+          </ul>
+        </section>
+
+        <section class="checkout-panel">
+          <h2>Order details</h2>
+          <form id="order-form" class="order-form" action="https://formspree.io/f/myekkwdr" method="POST">
+            <div class="form-grid">
+              <label>
+                Full name
+                <input type="text" name="name" placeholder="Your full name" required />
+              </label>
+              <label>
+                Email
+                <input type="email" name="email" placeholder="you@example.com" required />
+              </label>
+              <label>
+                Phone
+                <input type="tel" name="phone" placeholder="(555) 123-4567" required />
+              </label>
+              <label>
+                Address
+                <input type="text" name="address" placeholder="Street, city, ZIP" required />
+              </label>
+            </div>
+            <label class="notes-field">
+              Delivery notes
+              <textarea name="notes" rows="4" placeholder="Add any delivery instructions"></textarea>
+            </label>
+            <button type="submit" class="btn">Place order</button>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

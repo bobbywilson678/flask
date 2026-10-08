@@ -1,0 +1,895 @@
+:root {
+  --bg: #d72b2a;
+  --bg-deep: #b62122;
+  --panel: #fffaf3;
+  --text: #ffffff;
+  --text-dark: #1d231d;
+  --text-soft: #f8d9d9;
+  --green: #96d143;
+  --green-deep: #77b534;
+  --green-soft: #cde786;
+  --line: rgba(255, 255, 255, 0.18);
+  --card-line: rgba(28, 40, 30, 0.09);
+  --shadow: 0 25px 60px rgba(72, 10, 10, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg) 100%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  width: min(1140px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(215, 43, 42, 0.72);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 86px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.brand-mark {
+  width: 180px;
+  height: 180px;
+  display: block;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+
+.brand-mark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible,
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: white;
+}
+
+.nav-toggle {
+  display: none;
+  border: 0;
+  background: transparent;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  margin: 5px 0;
+  background: #fff;
+  border-radius: 999px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.4rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--green-soft), var(--green));
+  color: var(--text-dark);
+  font-weight: 800;
+  border: 1px solid transparent;
+  box-shadow: 0 14px 28px rgba(118, 181, 49, 0.28);
+  transition: transform 0.2s ease;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-1px);
+}
+
+.btn-small {
+  min-height: 40px;
+  padding: 0.7rem 1rem;
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow: none;
+}
+
+.hero {
+  padding: 4rem 0 2.4rem;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--green-soft);
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 5vw, 5.2rem);
+  line-height: 0.92;
+  letter-spacing: -0.07em;
+  margin-bottom: 1rem;
+  font-family: "Baloo 2", cursive;
+}
+
+.lead {
+  max-width: 620px;
+  font-size: 1.08rem;
+  color: var(--text-soft);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0 2.1rem;
+}
+
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 580px;
+}
+
+.stats li {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  padding: 1rem 1rem 0.7rem;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.stats span {
+  color: var(--text-soft);
+  font-size: 0.86rem;
+}
+
+.hero-visual {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+
+.hero-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+}
+
+.hero-shape-one {
+  width: 230px;
+  height: 230px;
+  left: 20px;
+  top: 20px;
+}
+
+.hero-shape-two {
+  width: 160px;
+  height: 160px;
+  right: 20px;
+  bottom: 20px;
+}
+
+.product-scene {
+  position: relative;
+  width: min(100%, 460px);
+  height: 420px;
+  display: grid;
+  place-items: center;
+}
+
+.bottle-wrap {
+  position: relative;
+  width: 190px;
+  height: 320px;
+  margin-top: 34px;
+}
+
+.bottle-cap {
+  position: absolute;
+  width: 110px;
+  height: 46px;
+  top: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 10px 10px;
+  background: linear-gradient(180deg, #d6d0bf, #b9ad8b);
+  border: 3px solid rgba(80, 70, 48, 0.18);
+}
+
+.bottle-body {
+  position: absolute;
+  inset: 0;
+  border-radius: 28px 28px 40px 40px;
+  background: linear-gradient(180deg, #fffefc 0%, #F4EFE6 100%);
+  box-shadow: 0 26px 30px rgba(88, 22, 22, 0.18);
+  overflow: hidden;
+  border: 2px solid rgba(50, 50, 50, 0.08);
+}
+
+.label-box {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 70px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(150, 209, 67, 0.18), rgba(171, 214, 91, 0.08));
+  border: 2px solid rgba(119, 181, 52, 0.3);
+  color: var(--text-dark);
+}
+
+.label-top {
+  background: rgba(255,255,255,0.75);
+  border-radius: 999px;
+  padding: 0.32rem 0.7rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.label-box strong {
+  font-family: "Baloo 2", cursive;
+  font-size: 2.4rem;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+.label-box small {
+  display: block;
+  margin-top: 0.35rem;
+  color: rgba(29, 35, 29, 0.7);
+  font-size: 0.8rem;
+}
+
+.leaf-badge {
+  position: absolute;
+  right: 18px;
+  bottom: 26px;
+  width: 170px;
+  height: 170px;
+  border-radius: 100% 0 100% 0;
+  background: linear-gradient(135deg, #bfe261, #7bbd3d);
+  transform: rotate(18deg);
+  box-shadow: 0 24px 32px rgba(99, 151, 33, 0.2);
+}
+
+.leaf-badge::before,
+.leaf-badge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.leaf-badge::before {
+  background: linear-gradient(90deg, transparent 0 45%, rgba(255,255,255,0.7) 45% 58%, transparent 58% 100%);
+  transform: rotate(48deg);
+}
+
+.leaf-badge::after {
+  background: linear-gradient(180deg, transparent 0 44%, rgba(106, 147, 41, 0.6) 44% 58%, transparent 58% 100%);
+  transform: rotate(-48deg);
+}
+
+.section {
+  padding: 6rem 0;
+}
+
+.alt-section {
+  background: rgba(255,255,255,0.04);
+}
+
+.section-heading {
+  margin-bottom: 2.4rem;
+}
+
+.section-heading h2 {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.3rem, 4vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 0;
+}
+
+.feature-grid,
+.benefit-columns {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-card,
+.info-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 1.6rem;
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.08);
+  color: var(--green-soft);
+  font-weight: 800;
+  font-size: 1.35rem;
+  margin-bottom: 1.2rem;
+}
+
+.feature-card h3,
+.info-box h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p,
+.info-box p {
+  margin-bottom: 0;
+  color: var(--text-soft);
+}
+
+.split-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.text-panel h2 {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.5rem, 4vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+}
+
+.ingredient-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.4rem;
+  display: grid;
+  gap: 0.8rem;
+  color: var(--text-soft);
+}
+
+.ingredient-list li {
+  position: relative;
+  padding-left: 1.3rem;
+}
+
+.ingredient-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-soft);
+  box-shadow: 0 0 0 4px rgba(168, 209, 94, 0.18);
+}
+
+.support-copy {
+  color: var(--text-soft);
+  margin-bottom: 0;
+}
+
+.visual-panel {
+  position: relative;
+  min-height: 440px;
+  display: grid;
+  place-items: center;
+}
+
+.ingredient-card {
+  position: absolute;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 1rem 1.2rem;
+  display: grid;
+  gap: 0.15rem;
+}
+
+.ingredient-card strong {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1;
+}
+
+.ingredient-card span {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+
+.ingredient-card-top {
+  left: 22px;
+  top: 22px;
+}
+
+.ingredient-card-bottom {
+  right: 18px;
+  bottom: 20px;
+}
+
+.ingredient-visual {
+  width: min(100%, 360px);
+  height: 300px;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(150, 209, 67, 0.08));
+  border: 1px solid var(--line);
+}
+
+.visual-leaf {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, #d5ef7d, #89c73d);
+  border-radius: 100% 0 100% 0;
+  transform: rotate(20deg);
+  box-shadow: inset -12px -12px 0 rgba(63, 92, 28, 0.12);
+}
+
+.visual-leaf::before,
+.visual-leaf::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
+.visual-leaf::before {
+  background: linear-gradient(90deg, transparent 0 45%, rgba(255,255,255,0.7) 45% 58%, transparent 58% 100%);
+  transform: rotate(48deg);
+}
+
+.visual-leaf::after {
+  background: linear-gradient(180deg, transparent 0 44%, rgba(85, 118, 36, 0.7) 44% 58%, transparent 58% 100%);
+  transform: rotate(-46deg);
+}
+
+.benefit-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.center {
+  text-align: center;
+}
+
+.site-footer {
+  padding: 4rem 0 1.7rem;
+  border-top: 1px solid var(--line);
+  background: rgba(182, 33, 34, 0.5);
+}
+
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-wrap h2 {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  margin-bottom: 0;
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--text-soft);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.order-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 2rem 0 2.5rem;
+}
+
+.order-product,
+.order-form {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 1.6rem;
+}
+
+.order-product {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100%;
+}
+
+.order-product h2 {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  margin: 0;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 1.2rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 0.3rem 0 1.1rem;
+  color: var(--text-soft);
+}
+
+.price-row strong {
+  font-size: 2rem;
+  color: var(--green-soft);
+}
+
+.order-trigger {
+  width: 100%;
+}
+
+.order-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.order-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.order-form input,
+.order-form textarea {
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  padding: 0.9rem 1rem;
+  font: inherit;
+}
+
+.order-form input::placeholder,
+.order-form textarea::placeholder {
+  color: rgba(255,255,255,0.56);
+}
+
+.order-form textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.notes-field {
+  margin-top: 0.2rem;
+}
+
+.order-toast {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 260px;
+  max-width: 320px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.96);
+  color: var(--text-dark);
+  padding: 0.95rem 1rem;
+  box-shadow: 0 18px 44px rgba(22, 18, 18, 0.22);
+  transform: translateY(120px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 30;
+}
+
+.order-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.toast-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(150, 209, 67, 0.15);
+  font-size: 1.1rem;
+}
+
+.order-toast strong,
+.order-toast small {
+  display: block;
+}
+
+.order-toast strong {
+  font-size: 0.98rem;
+}
+
+.order-toast small {
+  color: rgba(29, 35, 29, 0.72);
+  margin-top: 0.15rem;
+}
+
+.order-page {
+  padding: 4rem 0 5rem;
+}
+
+.order-layout {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.order-product-panel,
+.checkout-panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  padding: 2rem;
+}
+
+.order-product-panel h1 {
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  margin: 0 0 1rem;
+}
+
+.mini-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+  display: grid;
+  gap: 0.7rem;
+  color: var(--text-soft);
+}
+
+.mini-list li {
+  position: relative;
+  padding-left: 1.1rem;
+}
+
+.mini-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green-soft);
+}
+
+.checkout-panel h2 {
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-family: "Baloo 2", cursive;
+  font-size: clamp(2.2rem, 3vw, 3.3rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.single-order-card {
+  display: grid;
+  place-items: center;
+  padding-top: 2rem;
+}
+
+.single-order-card .order-product {
+  width: min(100%, 440px);
+  text-align: center;
+  align-items: center;
+}
+
+.single-order-card .order-product .btn {
+  width: 100%;
+  max-width: 220px;
+}
+
+@media (max-width: 900px) {
+  .hero-grid,
+  .split-layout,
+  .feature-grid,
+  .benefit-columns,
+  .footer-wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    top: calc(100% + 0.75rem);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    background: rgba(182, 33, 34, 0.96);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .product-scene {
+    width: min(100%, 360px);
+    height: 340px;
+  }
+
+  .footer-bottom {
+    display: block;
+  }
+
+  .footer-links {
+    margin-top: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .order-section {
+    grid-template-columns: 1fr;
+  }
+
+  .order-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding-top: 3rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .bottle-wrap {
+    width: 170px;
+    height: 280px;
+  }
+
+  .leaf-badge {
+    width: 120px;
+    height: 120px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
